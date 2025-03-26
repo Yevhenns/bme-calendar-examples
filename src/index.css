@@ -1,0 +1,22 @@
+:root {
+  font-family: Lato, sans-serif;
+  line-height: 1;
+  font-weight: 400;
+  color: #062341;
+  background-color: #ffffff;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  margin: 0;
+  display: flex;
+  min-height: 100vh;
+}
+
+p {
+  margin: 0;
+}
