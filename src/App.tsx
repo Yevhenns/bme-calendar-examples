@@ -13,7 +13,9 @@ function App() {
     <>
       <h2>Розмір 24х24px</h2>
       <h2>Календар</h2>
-      <Calendar setDay={setDay} />
+      <div style={{ width: "300px" }}>
+        <Calendar setDay={setDay} />
+      </div>
       <p>Дата: {day}</p>
       <h2>Діапазон дат</h2>
       <Calendar type="range" setRange={setRange} range={range} />
