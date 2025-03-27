@@ -30,14 +30,14 @@ function App() {
 
       <h2>Розмір 40х32px</h2>
       <h2>Календар</h2>
-      <Calendar setDay={setDay1} daySize={{ width: 40, height: 32 }} />
+      <Calendar setDay={setDay1} daySize="mobile" />
       <p>Дата: {day1}</p>
       <h2>Діапазон дат</h2>
       <Calendar
         type="range"
         setRange={setRange1}
         range={range1}
-        daySize={{ width: 40, height: 32 }}
+        daySize="mobile"
       />
       <div>
         <p>Список дат:</p>
