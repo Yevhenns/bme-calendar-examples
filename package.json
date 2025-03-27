@@ -1,12 +1,9 @@
 {
   "name": "bme-calendar-examples",
   "private": true,
-  "version": "1.0.12",
+  "version": "1.0.0",
   "author": "Yevhen Ziuskin",
   "type": "module",
-  "files": [
-    "dist"
-  ],
   "scripts": {
     "dev": "vite --open",
     "build": "tsc -b && vite build",

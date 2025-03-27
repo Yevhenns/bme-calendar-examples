@@ -9,6 +9,7 @@ function App() {
 
   return (
     <>
+      <h2>Розмір 24х24px</h2>
       <h2>Календар</h2>
       <Calendar setDay={setDay} />
       <p>Дата: {day}</p>
