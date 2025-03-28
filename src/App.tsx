@@ -43,7 +43,7 @@ function App() {
       {type === "calendar" && (
         <div style={{ width: containerWidth }}>
           <Calendar setDay={setDay} daySize={daySize} />
-          <p>Дата: {day}</p>
+          <p style={{ marginTop: "10px" }}>Дата: {day}</p>
         </div>
       )}
       {type === "range" && (
@@ -54,7 +54,7 @@ function App() {
             range={range}
             daySize={daySize}
           />
-          <p>Список дат:</p>
+          <p style={{ marginTop: "10px" }}>Список дат:</p>
           <ul>
             {range?.map((item) => {
               return <li key={item}>{item}</li>;
