@@ -35,17 +35,16 @@ export function Settings({
         </button>
       </div>
 
+      <p>Ширина календаря: {containerWidth} px</p>
       <label>
-        Ширина календаря:{" "}
         <input
           className={css.input}
-          type="number"
+          type="range"
           min={daySize === "mobile" ? MIN_MOBILE_WIDTH : MIN_DESKTOP_WIDTH}
           max={400}
           value={containerWidth}
           onChange={setContainerWidthHandler}
-        />{" "}
-        px
+        />
       </label>
     </div>
   );
