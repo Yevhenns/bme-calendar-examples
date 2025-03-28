@@ -1,0 +1,23 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+
+  .btnWrapper {
+    display: flex;
+    gap: 10px;
+  }
+
+  .button {
+    margin: 0 auto;
+    background-color: rgb(226 222 255);
+    border: none;
+    padding: 10px;
+    border-radius: 10px;
+    cursor: pointer;
+  }
+
+  .input {
+    width: auto;
+  }
+}

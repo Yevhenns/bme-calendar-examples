@@ -1,52 +1,67 @@
 import { useState } from "react";
-import { Calendar } from "bme-calendar";
+import { Calendar, DaySize } from "bme-calendar";
+import { Settings } from "./components/Settings/Settings";
 import "bme-calendar/style.css";
 import "./App.css";
+import { MIN_MOBILE_WIDTH } from "./assets/staticData";
 
 function App() {
   const [day, setDay] = useState<string>();
   const [range, setRange] = useState<string[]>();
-  const [day1, setDay1] = useState<string>();
-  const [range1, setRange1] = useState<string[]>();
+  const [type, setType] = useState<"calendar" | "range">("calendar");
+  const [containerWidth, setContainerWidth] = useState(300);
+  const [daySize, setDaySize] = useState<DaySize>("desktop");
+
+  const setTypeHandler = () => {
+    if (type === "calendar") setType("range");
+    if (type === "range") setType("calendar");
+  };
+
+  const setDaySizeHandler = () => {
+    if (daySize === "desktop") {
+      setDaySize("mobile");
+      if (containerWidth < MIN_MOBILE_WIDTH)
+        setContainerWidth(MIN_MOBILE_WIDTH);
+    }
+    if (daySize === "mobile") setDaySize("desktop");
+  };
+
+  const setContainerWidthHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setContainerWidth(+e.target.value);
+  };
 
   return (
     <>
-      <h2>Розмір 24х24px</h2>
-      <h2>Календар</h2>
-      <div style={{ width: "300px" }}>
-        <Calendar setDay={setDay} />
-      </div>
-      <p>Дата: {day}</p>
-      <h2>Діапазон дат</h2>
-      <Calendar type="range" setRange={setRange} range={range} />
-      <div>
-        <p>Список дат:</p>
-        <ul>
-          {range?.map((item) => {
-            return <li key={item}>{item}</li>;
-          })}
-        </ul>
-      </div>
-
-      <h2>Розмір 40х32px</h2>
-      <h2>Календар</h2>
-      <Calendar setDay={setDay1} daySize="mobile" />
-      <p>Дата: {day1}</p>
-      <h2>Діапазон дат</h2>
-      <Calendar
-        type="range"
-        setRange={setRange1}
-        range={range1}
-        daySize="mobile"
+      <Settings
+        setTypeHandler={setTypeHandler}
+        type={type}
+        containerWidth={containerWidth}
+        setContainerWidthHandler={setContainerWidthHandler}
+        setDaySizeHandler={setDaySizeHandler}
+        daySize={daySize}
       />
-      <div>
-        <p>Список дат:</p>
-        <ul>
-          {range1?.map((item) => {
-            return <li key={item}>{item}</li>;
-          })}
-        </ul>
-      </div>
+      {type === "calendar" && (
+        <div style={{ width: containerWidth }}>
+          <Calendar setDay={setDay} daySize={daySize} />
+          <p>Дата: {day}</p>
+        </div>
+      )}
+      {type === "range" && (
+        <div style={{ width: containerWidth }}>
+          <Calendar
+            type="range"
+            setRange={setRange}
+            range={range}
+            daySize={daySize}
+          />
+          <p>Список дат:</p>
+          <ul>
+            {range?.map((item) => {
+              return <li key={item}>{item}</li>;
+            })}
+          </ul>
+        </div>
+      )}
     </>
   );
 }
