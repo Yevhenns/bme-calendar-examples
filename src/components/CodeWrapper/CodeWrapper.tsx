@@ -9,10 +9,10 @@ export function CodeWrapper({ children }: CodeWrapperProps) {
   const handleCopy = async () => {
     try {
       await navigator.clipboard.writeText(children);
-      return toast.success("Посилання скопійовано");
+      return toast.success("Код скопійовано");
     } catch (err) {
       console.log(err);
-      return toast.error("Не вдалося скопіювати текст: ");
+      return toast.error("Не вдалося скопіювати код");
     }
   };
 
