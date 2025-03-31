@@ -23,7 +23,7 @@ export function CodeWrapper({ children }: CodeWrapperProps) {
         <button className={css.button} onClick={handleCopy}>
           <img src="/copy.svg" width={24} height={24} />
         </button>
-        <code>{children}</code>
+        <code className={css.code}>{children}</code>
       </pre>
     </>
   );
