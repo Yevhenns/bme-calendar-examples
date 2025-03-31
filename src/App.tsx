@@ -3,7 +3,8 @@ import { Calendar, DaySize } from "bme-calendar";
 import { Settings } from "./components/Settings/Settings";
 import "bme-calendar/style.css";
 import "./App.css";
-import { MIN_MOBILE_WIDTH } from "./assets/staticData";
+import { examples, MIN_MOBILE_WIDTH } from "./assets/staticData";
+import { CodeWrapper } from "./components/CodeWrapper/CodeWrapper";
 
 function App() {
   const [day, setDay] = useState<string>();
@@ -41,26 +42,42 @@ function App() {
         daySize={daySize}
       />
       {type === "calendar" && (
-        <div style={{ width: containerWidth }}>
-          <Calendar setDay={setDay} daySize={daySize} />
-          <p style={{ marginTop: "10px" }}>Дата: {day}</p>
-        </div>
+        <>
+          <div style={{ width: containerWidth }}>
+            <Calendar setDay={setDay} daySize={daySize} />
+            <p style={{ marginTop: "10px" }}>Дата: {day}</p>
+          </div>
+          {daySize === "desktop" && (
+            <CodeWrapper>{examples.desktopCalendar}</CodeWrapper>
+          )}
+          {daySize === "mobile" && (
+            <CodeWrapper>{examples.mobileCalendar}</CodeWrapper>
+          )}
+        </>
       )}
       {type === "range" && (
-        <div style={{ width: containerWidth }}>
-          <Calendar
-            type="range"
-            setRange={setRange}
-            range={range}
-            daySize={daySize}
-          />
-          <p style={{ marginTop: "10px" }}>Список дат:</p>
-          <ul>
-            {range?.map((item) => {
-              return <li key={item}>{item}</li>;
-            })}
-          </ul>
-        </div>
+        <>
+          <div style={{ width: containerWidth }}>
+            <Calendar
+              type="range"
+              setRange={setRange}
+              range={range}
+              daySize={daySize}
+            />
+            <p style={{ marginTop: "10px" }}>Список дат:</p>
+            <ul>
+              {range?.map((item) => {
+                return <li key={item}>{item}</li>;
+              })}
+            </ul>
+          </div>
+          {daySize === "desktop" && (
+            <CodeWrapper>{examples.desktopRange}</CodeWrapper>
+          )}
+          {daySize === "mobile" && (
+            <CodeWrapper>{examples.mobileRange}</CodeWrapper>
+          )}
+        </>
       )}
     </>
   );
