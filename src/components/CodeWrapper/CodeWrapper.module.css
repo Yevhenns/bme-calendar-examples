@@ -1,6 +1,17 @@
 .wrapper {
+  position: relative;
   background: #f4f4f4;
   padding: 10px;
   border-radius: 5px;
   text-align: left;
+
+  .button {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    padding: 0;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+  }
 }

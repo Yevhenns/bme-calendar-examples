@@ -5,6 +5,7 @@ import "bme-calendar/style.css";
 import "./App.css";
 import { examples, MIN_MOBILE_WIDTH } from "./assets/staticData";
 import { CodeWrapper } from "./components/CodeWrapper/CodeWrapper";
+import { ToastContainer } from "react-toastify";
 
 function App() {
   const [day, setDay] = useState<string>();
@@ -79,6 +80,7 @@ function App() {
           )}
         </>
       )}
+      <ToastContainer />
     </>
   );
 }
