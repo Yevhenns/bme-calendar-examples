@@ -22,7 +22,7 @@ export default App;
 `,
 
   mobileCalendar: `import { useState } from "react";
-import { Calendar } "bme-calendar";
+import { Calendar } from "bme-calendar";
 import "bme-calendar/style.css";
 
 function App() {
@@ -75,7 +75,11 @@ function App() {
   return (
     <>
       <h2>Діапазон дат</h2>
-      <Calendar type="range" setRange={setRange} range={range} daySize="mobile" />
+      <Calendar
+        type="range"
+        setRange={setRange}
+        range={range}
+        daySize="mobile" />
       <div>
         <p>Список дат:</p>
         <ul>
