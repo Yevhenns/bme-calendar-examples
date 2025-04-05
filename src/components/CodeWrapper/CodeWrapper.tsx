@@ -1,5 +1,6 @@
 import { toast } from "react-toastify";
 import css from "./CodeWrapper.module.css";
+import { Copy } from "../icons/Copy";
 
 type CodeWrapperProps = {
   children: string;
@@ -25,13 +26,7 @@ export function CodeWrapper({ children }: CodeWrapperProps) {
           onClick={handleCopy}
           aria-label="copy button"
         >
-          <img
-            src="/copy.svg"
-            width={24}
-            height={24}
-            alt="copy image"
-            loading="lazy"
-          />
+          <Copy />
         </button>
         <code className={css.code}>{children}</code>
       </pre>
