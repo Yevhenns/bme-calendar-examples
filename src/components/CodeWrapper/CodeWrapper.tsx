@@ -20,8 +20,18 @@ export function CodeWrapper({ children }: CodeWrapperProps) {
     <>
       <h3>Приклад використання</h3>
       <pre className={css.wrapper}>
-        <button className={css.button} onClick={handleCopy}>
-          <img src="/copy.svg" width={24} height={24} />
+        <button
+          className={css.button}
+          onClick={handleCopy}
+          aria-label="copy button"
+        >
+          <img
+            src="/copy.svg"
+            width={24}
+            height={24}
+            alt="copy image"
+            loading="lazy"
+          />
         </button>
         <code className={css.code}>{children}</code>
       </pre>
